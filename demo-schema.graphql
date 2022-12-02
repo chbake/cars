@@ -1,0 +1,24 @@
+type Query {
+  users: [User]
+  cars: [Car]
+  carsByMakeOrColor(make: String, color: String): [Car]
+}
+
+type Mutation {
+  makeUser(name: String!): User
+  makeCar(make: String!, model: String!, color: String!, owner: String!): Car
+  removeCar(id: String!): Boolean!
+}
+
+type User {
+  id: String!
+  name: String!
+}
+
+type Car {
+  id: String!
+  make: String!
+  model: String!
+  color: String!
+  owner: User
+}
